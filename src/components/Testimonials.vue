@@ -182,33 +182,6 @@ const carouselConfig = {
   width: 16px !important;
   height: 16px !important;
 }
-.testimonial-card {
-  position: relative;
-  border: 2px solid #F2F2F280; /* Aapke card ka border color */
-  border-radius: 30px;
-}
-
-/* Bottom center arrow only border */
-.testimonial-card::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -10px; /* Arrow ko border ke neeche laane ke liye */
-  transform: translateX(-50%);
-
-  width: 0;
-  height: 0;
-
-  /* Arrow border */
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #F2F2F280;  /* Border color */
-}
-
-/* Hover par border jaisa arrow red ho jaye */
-.testimonial-card:hover::after {
-  border-top-color: #E35F5F;
-}
 
 
 </style>
