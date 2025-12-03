@@ -162,6 +162,19 @@ const carouselConfig = {
 .testimonial-card:hover {
   border: 2px solid #E35F5F;
 }
+.testimonial-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 16px;
+  height: 16px;
+
+  border-left: 2px solid #F2F2F280;
+  border-bottom: 2px solid #F2F2F280;
+
+  transform: translateX(-50%) rotate(-45deg);  
+}
 .q-margin-50{
     margin-bottom: -50px;
 }
