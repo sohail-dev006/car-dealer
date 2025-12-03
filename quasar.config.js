@@ -41,7 +41,7 @@ export default defineConfig((/* ctx */) => {
         node: 'node20'
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -73,6 +73,7 @@ export default defineConfig((/* ctx */) => {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
     framework: {
+      cssAddon: true,
       config: {},
 
       // iconSet: 'material-icons', // Quasar icon set

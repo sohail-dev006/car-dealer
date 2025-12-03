@@ -1,1 +1,662 @@
 // app global css in SCSS form
+// app global css in SCSS form
+* {
+  padding: 0;
+  margin: 0;
+  // font-family: "font-anek";
+//   color: #6b7280;
+}
+
+//===========================Font family Starts===========================//
+@import url('https://fonts.googleapis.com/css2?family=Kulim+Park:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-4');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+
+
+.font-anek{
+  font-family: 'Anek Bangla', sans-serif !important;
+}
+.font-kulim {
+  font-family: 'Kulim Park', sans-serif !important;
+}
+.font-Marko{
+  font-family: 'Marko One', sans-serif !important;
+}
+.font-inter{
+  font-family: 'inter', sans-serif !important;
+}
+.font-mukta{
+  font-family: 'Mukta', sans-serif !important;
+}
+.font-poppins{
+  font-family: 'Poppins', sans-serif !important;
+}
+.font-segoe{
+  font-family: 'Segoe UI', sans-serif !important;
+}
+.font-roboto{
+  font-family: 'Roboto', sans-serif !important;
+}
+
+//===========================Font Sizes Starts===========================//
+
+@mixin apply-fonts($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, font);
+    }
+  }
+}
+
+$fonts_in_pixels: (
+  "9": (
+    font: 9px,
+  ),
+  "10": (
+    font: 10px,
+  ),
+  "11": (
+    font: 11px,
+  ),
+  "12": (
+    font: 12px,
+  ),
+  "13": (
+    font: 13px,
+  ),
+  "14": (
+    font: 14px,
+  ),
+  "15": (
+    font: 15px,
+  ),
+  "16": (
+    font: 16px,
+  ),
+  "17": (
+    font: 17px,
+  ),
+  "18": (
+    font: 18px,
+  ),
+  "19": (
+    font: 19px,
+  ),
+  "20": (
+    font: 20px,
+  ),
+  "22": (
+    font: 22px,
+  ),
+  "23": (
+    font: 23px,
+  ),
+  "24": (
+    font: 24px,
+  ),
+  "26": (
+    font: 26px,
+  ),
+  "27": (
+    font: 27px,
+  ),
+  "28": (
+    font: 28px,
+  ),
+  "30": (
+    font: 30px,
+  ),
+  "32": (
+    font: 32px,
+  ),
+  "36": (
+    font: 36px,
+  ),
+  "40": (
+    font: 40px,
+  ),
+  "42": (
+    font: 42px,
+  ),
+  "45": (
+    font: 45px,
+  ),
+  "50": (
+    font: 50px,
+  ),
+  "65": (
+    font: 65px,
+  ),
+  "70": (
+    font: 70px,
+  ),
+  "100": (
+    font: 100px,
+  ),
+
+);
+@include apply-fonts("font-size", "font-size", $fonts_in_pixels);
+
+// ============================= All Font Sizes end ================================/
+
+// ============================= All Font Weight Starts ================================/
+
+@mixin apply-fontWeight($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, weight);
+    }
+  }
+}
+$font-weight: (
+  "200": (
+    weight: 200,
+  ),
+  "300": (
+    weight: 300,
+  ),
+  "400": (
+    weight: 400,
+  ),
+  "500": (
+    weight: 500,
+  ),
+  "600": (
+    weight: 600,
+  ),
+);
+@include apply-fontWeight("font-weight", "font-weight", $font-weight);
+
+// ============================= All Font Weight Ends ================================/
+
+// ============================= All Border-radius start ================================/
+
+@mixin apply-left($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, border-radius);
+    }
+  }
+}
+
+$borderRadius: (
+  "4": (
+    border-radius: 4px,
+  ),
+  "6": (
+    border-radius: 6px,
+  ),
+  "8": (
+    border-radius: 8px,
+  ),
+  "8-5": (
+    border-radius: 8.5px,
+  ),
+  "10": (
+    border-radius: 10px,
+  ),
+  "20": (
+    border-radius: 20px,
+  ),
+  "30": (
+    border-radius: 30px,
+  ),
+  "25": (
+    border-radius: 25px,
+  ),
+  "50": (
+    border-radius: 50px,
+  ),
+);
+
+@include apply-left("border-radius", "border-radius", $borderRadius);
+
+// ============================= All Border-radius End ================================/
+
+// ============================= All Line Heights start ================================/
+
+@mixin apply-lineHeight($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, Lines);
+    }
+  }
+}
+$height: (
+  "36": (
+    Lines: 36px,
+  ),
+  "45": (
+    Lines: 45px,
+  ),
+  "75": (
+    Lines: 75px,
+  ),
+  "100": (
+    Lines: 100px,
+  ),
+  "46": (
+    Lines: 46px,
+  ),
+  "38": (
+    Lines: 38px,
+  ),
+  "40": (
+    Lines: 40px,
+  ),
+
+);
+@include apply-lineHeight("line-height", "line-height", $height);
+
+// ============================= All Line Heights End ================================/
+
+// ============================= All widths start ================================/
+
+@mixin apply-width($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, width);
+    }
+  }
+}
+$widths: (
+  "90px": (
+    width: 90px,
+  ),
+  "150px": (
+    width: 150px,
+  ),
+  "168px": (
+    width: 168px,
+  ),
+  "196px": (
+    width: 196px,
+  ),
+  "200px": (
+    width: 200px,
+  ),
+  "210px": (
+    width: 210px,
+  ),
+);
+@include apply-width("width", "width", $widths);
+
+// ============================= All widths end ================================/
+
+// ============================= All max Width Start ================================/
+
+@mixin apply-maxWidth($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, width);
+    }
+  }
+}
+
+$max-width: (
+  "1320px": (
+    width: 1320px,
+  ),
+  "1140px": (
+    width: 1140px,
+  ),
+  "720px": (
+    width: 720px,
+  ),
+  "540px": (
+    width: 540px,
+  ),
+  "1440": (
+    width: 1440px,
+  ),
+  "820px": (
+    width: 1020px,
+  ),
+  "640px": (
+    width: 840px,
+  ),
+);
+@include apply-maxWidth("max-width", "max-width", $max-width);
+
+// ============================= All max Width End ================================/
+
+// ============================= All min Width Start ================================/
+
+@mixin apply-minWidth($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, width);
+    }
+  }
+}
+
+$min-width: (
+  "40": (
+    width: 40px,
+  ),
+  "30": (
+    width: 30px,
+  ),
+  "300": (
+    width: 300px,
+  ),
+  "315": (
+    width: 315px,
+  ),
+  "320": (
+    width: 320px,
+  ),
+  "330": (
+    width: 330px,
+  ),
+  "350": (
+    width: 350px,
+  ),
+);
+
+@include apply-maxWidth("min-width", "min-width", $min-width);
+
+// ============================= All min Width End ================================/
+
+// ============================= All Heights start ================================/
+
+@mixin apply-height($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, height);
+    }
+  }
+}
+
+$heights: (
+  "56px": (
+    height: 56px,
+  ),
+  "60px": (
+    height: 60px,
+  ),
+  "120px": (
+    height: 120px,
+  ),
+  "125px": (
+    height: 125px,
+  ),
+  "140px": (
+    height: 140px,
+  ),
+  "110px": (
+    height: 110px,
+  ),
+  "215px": (
+    height: 215px,
+  ),
+  "150px": (
+    height: 150px,
+  ),
+  "180px": (
+    height: 180px,
+  ),
+  "200px": (
+    height: 200px,
+  ),
+  "210px": (
+    height: 210px,
+  ),
+  "270px": (
+    height: 270px,
+  ),
+  "calc-50-10": (
+    height: calc(50% + 10px),
+  ),
+  "calc-100vh-30vh": (
+    height: calc(100vh - 30vh),
+  ),
+);
+@include apply-height("height", "height", $heights);
+
+// ============================= All Heights end ================================/
+
+// ============================= All Minimum Heights start ================================/
+
+@mixin apply-minHeight($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, height);
+    }
+  }
+}
+$minHeights: (
+  "470px": (
+    height: 470px,
+  ),
+  "415px": (
+    height: 415px,
+  ),
+  "420px": (
+    height: 420px,
+  ),
+  "315px": (
+    height: 315px,
+  ),
+  "450px": (
+    height: 450px,
+  ),
+  "60px": (
+    height: 60px,
+  ),
+  "30px": (
+    height: 30px,
+  ),
+  "350px": (
+    height: 350px,
+  ),
+);
+@include apply-minHeight("min-height", "min-height", $minHeights);
+
+// ============================= All Minimum Heights End ================================/
+
+// ============================= All Maximmum Heights start ================================/
+
+@mixin apply-maxHeight($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, height);
+    }
+  }
+}
+$maxHeights: (
+  "100": (
+    height: 100%,
+  ),
+  "165": (
+    height: 165px,
+  ),
+);
+@include apply-maxHeight("max-height", "max-height", $maxHeights);
+
+// ============================= All Maximmum Heights end ================================/
+
+// ============================= Position Starts ================================/
+
+@mixin apply-position($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, position);
+    }
+  }
+}
+$postions: (
+  "relative": (
+    position: relative,
+  ),
+  "absolute": (
+    position: absolute,
+  ),
+);
+@include apply-position("position", "position", $postions);
+
+// ============================= Position Ends ================================/
+
+// ============================= All Top position start ================================/
+
+@mixin apply-top($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, position);
+    }
+  }
+}
+$Top: (
+  "3": (
+    position: -3px,
+  ),
+  "7": (
+    position: 7%,
+  ),
+  "27": (
+    position: 17px,
+  ),
+  "15": (
+    position: 15px,
+  ),
+  "35": (
+    position: 35px,
+  ),
+  "45": (
+    position: 45px,
+  ),
+  "43": (
+    position: 43px,
+  ),
+  "50": (
+    position: 50%,
+  ),
+    "29": (
+    position: 29%,
+  ),
+);
+@include apply-top("top", "top", $Top);
+
+// ============================= All Top position end ================================/
+
+// ============================= All Left position start ================================/
+
+@mixin apply-left($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, position);
+    }
+  }
+}
+$Left: (
+  "5": (
+    position: 5%,
+  ),
+  "0": (
+    position: 0%,
+  ),
+  "9": (
+    position: 9%,
+  ),
+  "29": (
+    position: 29%,
+  ),
+  "35": (
+    position: 35%,
+  ),
+  "108": (
+    position: 108px,
+  ),
+);
+@include apply-left("left", "left", $Left);
+
+// ============================= All Left position end ================================/
+
+// ============================= All Right position start ================================/
+
+@mixin apply-right($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, position);
+    }
+  }
+}
+$Right: (
+  "-10px": (
+    position: -10px,
+  ),
+  "22px": (
+    position: 22px,
+  ),
+  "65px": (
+    position: 65px,
+  ),
+  "n2px": (
+    position: -2px,
+  ),
+  "0": (
+    position: -0px,
+  ),
+  "100px": (
+    position: 100px,
+  ),
+  "50px": (
+    position: 50px,
+  ),
+  "10px": (
+    position: 10px,
+  ),
+  "85px": (
+    position: 85px,
+  ),
+  "40px": (
+    position: 40px,
+  ),
+  "55px": (
+    position: 55px,
+  ),
+  "45px": (
+    position: 45px,
+  ),
+);
+@include apply-right("right", "right", $Right);
+
+// ============================= All Right position end ================================/
+
+// ============================= All Bottom position start ================================/
+
+@mixin apply-bottom($prefix, $property, $map) {
+  @each $size, $val in $map {
+    .#{$prefix}-#{$size} {
+      #{$property}: map-get($val, position);
+    }
+  }
+}
+$Bottom: (
+  "-10px": (
+    position: -10px,
+  ),
+  "35": (
+    position: 35px,
+  ),
+  "48": (
+    position: 48px,
+  ),
+);
+@include apply-bottom("bottom", "bottom", $Bottom);
+
+// ============================= All Bottom position end ================================/
+.text-decoration {
+  text-decoration: none !important;
+}
+.container {
+  max-width: 1440px !important;
+  margin: auto;
+}
