@@ -32,7 +32,7 @@
                 <q-select dense outlined v-model="sortBy" :options="sortOptions" style="width: 180px" />
             </div>
         </div>
-        <q-separator class="q-mb-md" inset />
+        <q-separator v-if="initialCategories != 'hidden'"  class="q-mb-md" inset />
 
         <!-- CAR GRID -->
         <div class="row q-col-gutter-lg">

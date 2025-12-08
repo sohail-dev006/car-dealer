@@ -1,147 +1,137 @@
 <template>
-  <div class="q-pa-none">
+  <div class="car-full-wrapper">
+
     <q-carousel
       v-model="slide"
-      :height="$q.screen.gt.md ? '850px' : '600px'"
+      swipeable
       animated
       infinite
-      :autoplay="false"
+      arrows
       transition-prev="slide-right"
       transition-next="slide-left"
-      control-color="white"
-      :arrows="true"
+      class="bg-black full-width"
     >
       <q-carousel-slide
-        v-for="(item, index) in slides"
+        v-for="(img, index) in images"
         :key="index"
         :name="index"
-        class="q-pa-none"
+        class="flex flex-center"
       >
-      <div class="dark-overlay"></div>
-        <!-- Image -->
-        <img
-          v-if="item.type === 'image'"
-          :src="item.src"
-          class="full-slide"
-        />
+        <div class="car-flex row no-wrap justify-center items-center">
 
-        <!-- Video -->
-        <video
-          v-else-if="item.type === 'video'"
-          :src="item.src"
-          autoplay
-          loop
-          muted
-          playsinline
-          class="full-slide"
-        ></video>
+          <q-img
+            :src="prevImage(index)"
+            class="side-img fade"
+            fit="cover"
+          />
 
-        <!-- Caption -->
-         <div class="container">
-          <div 
-            class="row"
-            :class="$q.screen.gt.xl ? 'justify-start':'justify-around'"
-            >
-            <div class="col-12 col-md-10">
-             <div 
-               class="slide-caption max-width-540px q-ml-sm-md q-ml-md-sm top-50"
-              >
-                <h4 class="font-size-26 q-py-xs font-kulim text-primary text-weight-bold">{{ item.subtitle }}</h4>
-                <h2 
-                  class="font-Marko text-white "
-                  :class="$q.screen.gt.sm ? 'line-height-75 font-size-60 text-weight-regular':'text-h4 text-weight-regular'"
-                 >
-                    <span v-html="highlightDream(item.title)"></span>
-                </h2>
-                <p class="text-h5 q-pa-sm text-white font-kulim text-weight-regular">{{ item.desc }}</p>
-              </div>
-            </div>
-          </div>
-         </div>
+          <q-img
+            :src="img"
+            class="center-img"
+            fit="contain"
+          />
+
+          <q-img
+            :src="nextImage(index)"
+            class="side-img fade"
+            fit="cover"
+          />
+
+        </div>
       </q-carousel-slide>
     </q-carousel>
+
   </div>
 </template>
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from "vue";
 
-const slide = ref(0)
-const slides = ref([])
+const slide = ref(0);
 
-onMounted( async () => {
+const images = ref([
+  "src/assets/images/Frame 1000002066.svg",
+  "src/assets/images/Frame 1000002066.svg",
+  "src/assets/images/Frame 1000002066.svg",
+  "src/assets/images/Frame 1000002066.svg",
+]);
 
-  slides.value = [
-    {
-      type: "image",
-      src: "src/assets/images/background_car.jpg",
-      subtitle: "WELCOME TO LOT OF AUTOS",
-      title: "Best Way to Find Your Dream Car",
-      desc: "Use our search below to find our latest models",
-    },
-    {
-      type: "video",
-      src: "https://www.w3schools.com/html/mov_bbb.mp4",
-      subtitle: "",
-      title: "",
-      desc: ""
-    },
+const prevImage = (i) => {
+  const p = i - 1 < 0 ? images.value.length - 1 : i - 1;
+  return images.value[p];
+};
 
-    {
-      type: "image",
-      src: "src/assets/images/background_car.jpg",
-      subtitle: "WELCOME TO LOT OF AUTOS",
-      title: "Best Way to Find Your Dream Car",
-      desc: "Use our search below to find our latest models",
-    }
-  ]
-})
-const highlightDream = (text) => {
-  return text.replace(/Dream/g, '<span class="text-primary">Dream</span>')
-}
-
+const nextImage = (i) => {
+  const n = i + 1 >= images.value.length ? 0 : i + 1;
+  return images.value[n];
+};
 </script>
 <style scoped>
-
-.full-slide {
+.car-full-wrapper {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  max-width: 100%;
   overflow: hidden;
-  z-index: 0;
-}
-.q-carousel-slide {
-  overflow: hidden !important;
-}
-.slide-caption {
-  position: absolute;             
-  transform: translateY(-50%);
-  z-index: 2;
 }
 
-.dark-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.car-flex {
   width: 100%;
   height: 100%;
-  background: #000000A6; 
-  z-index: 1;
+  display: flex;
+  gap: 0 !important;
+  padding: 0;
+  margin: 0;
 }
-@media (max-width: 768px) {
-  .slide-caption {
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 80%;
-  }
+:deep(.center-img .q-img__image),
+:deep(.side-img .q-img__image) {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
 }
-@media (min-width: 1919px) and (max-width: 2500px) {
-  .slide-caption {
-    left: 14%;
+.center-img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;       
+  object-fit: cover;
+}
+.side-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+}
+.center-img {
+  flex-grow: 4;
+}
 
+.side-img {
+  flex-grow: 1;
+  opacity: 0.8;
+}
+@media (max-width: 1024px) {
+  .side-img {
+    display: none;     
+  }
+  .center-img {
+    flex-grow: 1;
+    width: 100%;
+    object-fit: contain;
   }
 }
+
+:deep(.q-carousel__control) {
+  background: white !important;
+  color: #EF1D26 !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  top: 50% !important;                 
+  transform: translateY(-50%) !important;
+}
+:deep(.q-carousel__slide, .q-carousel .q-carousel--padding){
+  padding: 0px !important;
+}
+
 </style>
-
