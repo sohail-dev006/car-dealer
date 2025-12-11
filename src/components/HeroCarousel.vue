@@ -1,6 +1,5 @@
 <template>
   <div class="car-full-wrapper">
-
     <q-carousel
       v-model="slide"
       swipeable
@@ -85,39 +84,33 @@ const nextImage = (i) => {
   width: 100% !important;
   object-fit: cover !important;
 }
-.center-img{
+.car-flex {
   width: 100%;
   height: 100%;
-  display: block;
-  margin: 0;
-  padding: 0;
-  object-fit: cover;       
-  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.side-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  margin: 0;
-  padding: 0;
-  object-fit: cover;
-}
+
 .center-img {
-  flex-grow: 4;
+  width: 55%;    
+  height: 100%;
+  object-fit: contain;
 }
 
 .side-img {
-  flex-grow: 1;
-  opacity: 0.8;
+  width: 28%;  
+  height: 100%;
+  opacity: 0.6;
+  object-fit: cover;
 }
+
 @media (max-width: 1024px) {
   .side-img {
-    display: none;     
+    display: none;
   }
   .center-img {
-    flex-grow: 1;
     width: 100%;
-    object-fit: contain;
   }
 }
 

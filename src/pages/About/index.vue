@@ -8,7 +8,7 @@
       <div class="container">
         <div class="row justify-center">
           <div class="col-12 col-md-10 col-xl-12">
-            <div class="row q-col-gutter-md q-px-sm q-px-md-none">
+            <div class="row q-col-gutter-md q-px-sm q-px-md-none q-pb-lg">
               <div class="col-12 col-md-8 col-lg-7">
                 <q-card class="bg-white border-radius-15 no-shadow q-py-md q-px-sm">
                   <div class="q-px-sm">
@@ -463,28 +463,6 @@ const baseCar = [
         price: '12000',
         pic: '7',
       },
-];
-const cards = [
-  {
-    title: "Best Services",
-    desc: "Our staff consists of dedicated and certified A+ and Network",
-    img: "src/assets/images/image_car.svg"
-  },
-  {
-    title: "Best Staf",
-    desc: "Our staff consists of dedicated and certified A+ and Network",
-    img: "src/assets/images/image_car.svg"
-  },
-  {
-    title: "Simple Pricing",
-    desc: "Our staff consists of dedicated and certified A+ and Network",
-    img: "src/assets/images/image_car.svg"
-  },
-  {
-    title: "Warranty",
-    desc: "Our staff consists of dedicated and certified A+ and Network",
-    img: "src/assets/images/image_car.svg"
-  }
 ];
 
 const handleBuy = () => {
