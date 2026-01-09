@@ -20,7 +20,7 @@
 
           <q-img
             :src="prevImage(index)"
-            class="side-img fade"
+            class="side-img"
             fit="cover"
           />
 
@@ -32,7 +32,7 @@
 
           <q-img
             :src="nextImage(index)"
-            class="side-img fade"
+            class="side-img"
             fit="cover"
           />
 
@@ -48,10 +48,11 @@ import { ref } from "vue";
 const slide = ref(0);
 
 const images = ref([
+  "src/assets/images/image_1.svg",
   "src/assets/images/Frame 1000002066.svg",
+  "src/assets/images/image_2.svg",
   "src/assets/images/Frame 1000002066.svg",
-  "src/assets/images/Frame 1000002066.svg",
-  "src/assets/images/Frame 1000002066.svg",
+  "src/assets/images/image_3.svg",
 ]);
 
 const prevImage = (i) => {
@@ -125,6 +126,10 @@ const nextImage = (i) => {
 }
 :deep(.q-carousel__slide, .q-carousel .q-carousel--padding){
   padding: 0px !important;
+}
+:deep(.q-img__image) {
+  transform: none !important;
+  transition: none !important;
 }
 
 </style>

@@ -301,7 +301,28 @@
               </div>
             </div>
           </div>
-          <CarGrid :initialCategories="['hidden']" :initialCars="baseCar" />
+          <!-- <div class="q-pa-md">
+            <q-carousel
+              v-model="slide"
+              swipeable
+              animated
+              arrows
+              infinite
+              transition-prev="slide-right"
+              transition-next="slide-left"
+              class="full-height"
+            >
+              <q-carousel-slide
+                v-for="(car, index) in baseCar"
+                :key="index"
+                :name="index"
+                class="flex flex-center"
+              >
+                <CarCard :car="car" />
+              </q-carousel-slide>
+            </q-carousel>
+          </div> -->
+              <CarGrid :initialCategories="['hidden']" :initialCars="baseCar" />
         </div>
       </div>
     </div>
@@ -312,6 +333,8 @@
 import { ref, reactive } from 'vue';
 import Slider from 'src/components/Slider.vue';
 import CarGrid from 'src/components/CarGrid.vue';
+import CarCard from 'components/CarCard.vue'
+
 import HeroCarousel from 'src/components/HeroCarousel.vue';
 const title = ref('Browse by');
 const title_primary = ref('Brand');
@@ -367,6 +390,7 @@ const description = ref({
     },
   ]
 });
+const slide = ref(0)
 const sliderImages = ref([
   { 
     url: "src/assets/images/BMW.svg",
@@ -780,11 +804,12 @@ const included = [
 }
 .bg-light-white{
   background-color: #F4F4F4 !important;
-
+}
+:deep(.q-carousel__arrow .q-btn){
+  color: black;
 }
 .bg-car{
   background: linear-gradient(180deg, #1F1F1F 0%, #9E9E9E 100%);
-
 }
 .q-margin-120{
   margin-top: -100px;
